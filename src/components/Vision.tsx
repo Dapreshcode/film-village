@@ -6,13 +6,13 @@ export default function Vision() {
       id="about"
       className="relative overflow-hidden bg-[var(--cinematic-navy)] py-24 md:py-32 lg:py-40"
     >
-      <div className="mx-auto max-w-[1360px] px-6 md:px-8">
+      <div className="mx-auto max-w-[1360px]  min-h-[400px] max-h-[560px] px-6 md:px-8">
 
         {/* Section heading */}
         <div className="mb-16 flex items-center gap-3 md:mb-20">
           <span className="h-2 w-2 bg-[var(--orange)]" />
 
-          <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-white/50 md:text-[11px]">
+          <p className="text-[6px] font-medium uppercase tracking-[0.18em] text-white/50 md:text-[8px]">
             01 / The Vision
           </p>
         </div>

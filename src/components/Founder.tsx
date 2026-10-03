@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Founder() {
 return <section
    id="founder"
-   className="relative overflow-hidden bg-[var(--cinematic-navy)] py-24 md:py-26 lg:py-30"
+   className="relative w-full overflow-hidden bg-[var(--cinematic-navy)]  py-24 md:py-26 lg:py-30"
  > <div className="mx-auto max-w-[1360px] px-6 md:px-8">
 {/* Section heading */} 
 <div className="mb-12 flex items-center gap-3 md:mb-16"> <span className="h-2 w-2 bg-[var(--orange)]" />
@@ -18,13 +18,13 @@ return <section
     <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
       {/* Founder portrait */}
       <div className="relative lg:col-span-5">
-        <div className="relative aspect-[4/5] overflow-hidden bg-[var(--surface)]">
+        <div className="relative aspect-[3/3] w-full overflow-hidden bg-[var(--surface)] ">
           <Image
             src="/homepage/NdumeGreen.jpeg"
             alt="Ndume Green, founder of Capital Film & Creatives Village"
             fill
-            className="object-cover object-center transition-transform duration-700 hover:scale-[1.02]"
-            sizes="(max-width: 960px) 80vw, 30vw"
+            className="object-cover object-center transition-transform duration-700 hover:scale-[1.02] "
+           sizes="(max-width: 1024px) 100vw, 42vw"
           />
 
           <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/45 via-transparent to-transparent" />

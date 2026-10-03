@@ -30,12 +30,12 @@ export default function Stories() {
   return (
     <section
       id="stories"
-      className="relative overflow-hidden bg-[var(--surface)] py-24 md:py-32 lg:py-40"
+      className="relative w-full overflow-hidden bg-[var(--surface)] flex items-center justify-center py-24 md:py-32 lg:py-40"
     >
       <div className="mx-auto max-w-[1360px] px-6 md:px-8">
 
         {/* Section heading */}
-        <div className="mb-12 flex items-center gap-3 md:mb-16">
+        <div className="mb-12 flex items-center gap-3 md:mb-16 px-10">
           <span className="h-2 w-2 bg-[var(--orange)]" />
 
           <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-white/50 md:text-[11px]">
@@ -44,7 +44,7 @@ export default function Stories() {
         </div>
 
         {/* Intro row */}
-        <div className="mb-14 flex flex-col justify-between gap-6 md:mb-20 md:flex-row md:items-end">
+        <div className="mb-14 flex flex-col justify-between gap-6 md:mb-20 md:flex-row md:items-end mx-10">
           <h2 className="max-w-[680px] font-[var(--font-cormorant)] text-[44px] font-medium leading-[0.95] tracking-[-0.02em] text-white sm:text-6xl md:text-7xl">
             The Africa moving
             <br />
@@ -61,12 +61,12 @@ export default function Stories() {
         </div>
 
         {/* Editorial layout: featured + list */}
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-14 ">
 
           {/* Featured story */}
           <a
             href="/stories"
-            className="group relative col-span-12 aspect-[4/5] overflow-hidden md:aspect-[16/10] lg:col-span-7 lg:aspect-[4/5]"
+            className="group relative col-span-12 aspect-[4/5] overflow-hidden md:aspect-[16/10] lg:col-span-7 lg:aspect-[4/5] mx-10"
           >
             <Image
               src={featuredStory.image}
@@ -94,7 +94,7 @@ export default function Stories() {
           </a>
 
           {/* Story list */}
-          <div className="col-span-12 flex flex-col divide-y divide-white/10 border-t border-white/10 lg:col-span-5 lg:border-t-0">
+          <div className="col-span-12 flex flex-col divide-y divide-white/10 border-t border-white/10 lg:col-span-5 lg:border-t-0 mx-10">
             {stories.map((story) => (
               <a
                 key={story.title}

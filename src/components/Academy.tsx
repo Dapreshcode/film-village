@@ -1,110 +1,161 @@
-import Image from "next/image";
+"use client";
 
-const learningPillars = [
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+
+const activities = [
   {
     number: "01",
     title: "Learn",
-    description: "Build the knowledge behind creative storytelling.",
+    description:
+      "Classroom and workshop sessions building the foundations of storytelling, media theory and craft.",
+    image: "/homepage/story-1.jpeg",
   },
   {
     number: "02",
     title: "Practise",
-    description: "Develop skills through practical creative work.",
+    description:
+      "Hands-on studio time — cameras, sound, editing and real production gear used under guidance.",
+    image: "/homepage/the-village-1.jpeg",
   },
   {
     number: "03",
     title: "Create",
-    description: "Turn ideas into stories that can reach the world.",
+    description:
+      "Trainees move from exercises to original work — short films, pieces and projects of their own.",
+    image: "/homepage/story-2.jpeg",
   },
 ];
 
+const AUTO_ADVANCE_MS = 6000;
+
 export default function Academy() {
+  const [index, setIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState<number | null>(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    
+
+    timerRef.current = setTimeout(() => {
+      setPrevIndex(index);
+      setIndex((i) => (i === activities.length - 1 ? 0 : i + 1));
+    }, AUTO_ADVANCE_MS);
+
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, [index]);
+
+  const goTo = (i: number) => {
+    setPrevIndex(index);
+    setIndex(i);
+  };
+
   return (
     <section
       id="academy"
+     
       className="relative overflow-hidden bg-[var(--surface)] py-24 md:py-32 lg:py-40"
     >
       <div className="mx-auto max-w-[1360px] px-6 md:px-8">
+
         {/* Section label */}
-        <div className="mb-12 flex items-center gap-3 md:mb-16">
+        <div className="mb-8 flex items-center gap-3 md:mb-10">
           <span className="h-2 w-2 bg-[var(--orange)]" />
-          <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-white/50 md:text-[11px]">
+          <p className="text-[6px] font-medium uppercase tracking-[0.16em] text-white/50 md:text-[8px]">
             05 / The Academy
           </p>
         </div>
 
-        {/* Main content */}
-        <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
-          {/* Image */}
-          <div className="relative lg:col-span-6">
-            <div className="relative aspect-[4/3] overflow-hidden bg-[var(--cinematic-navy)] md:aspect-[5/4]">
-              <Image
-                src="/homepage/Academy-homepage.jpeg"
-                alt="Creative media training and filmmaking education"
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-              sizes="(max-width: 1024px) 100vw, 55vw"
-              />
+        {/* Trimmed intro — single line, no side paragraph */}
+        <h2 className="mb-10 max-w-[720px] font-[var(--font-cormorant)] text-[36px] font-medium leading-[1.05] tracking-[-0.02em] text-white sm:text-5xl md:mb-14 md:text-6xl">
+          The next generation of African storytellers{" "}
+          <span className="text-white/45">starts here.</span>
+        </h2>
 
-              <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/60 via-transparent to-transparent" />
+        {/* Full-size auto-cycling card stage — fixed viewport-relative height, not aspect ratio */}
+        <div className="relative h-[56vh] min-h-[380px] max-h-[560px] overflow-hidden">
+          {activities.map((activity, i) => {
+            const isActive = i === index;
+            const isExiting = i === prevIndex;
 
-              <p className="absolute bottom-5 left-5 text-[9px] font-medium uppercase tracking-[0.18em] text-white/75 md:bottom-7 md:left-7">
-                Knowledge · Practice · Possibility
-              </p>
-            </div>
-          </div>
+            return (
+              <div
+                key={activity.number}
+                className={`absolute inset-0 transition-all duration-700 ease-out ${
+                  isActive
+                    ? "z-20 translate-y-0 opacity-100"
+                    : isExiting
+                    ? "z-10 -translate-y-10 opacity-0"
+                    : "z-0 translate-y-full opacity-0"
+                }`}
+              >
+                <Image
+                  src={activity.image}
+                  alt={activity.title}
+                  fill
+                  priority={i === 0}
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 1360px"
+                />
 
-          {/* Text */}
-          <div className="lg:col-span-6 lg:pl-4">
-            <p className="mb-5 text-[10px] font-medium uppercase tracking-[0.18em] text-[var(--orange)]">
-              Developing creative talent
-            </p>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/95 via-[#020617]/35 to-[#020617]/10" />
 
-            <h2 className="max-w-[650px] font-[var(--font-cormorant)] text-[46px] font-medium leading-[0.98] tracking-[-0.025em] text-white sm:text-6xl md:text-7xl">
-              The next generation of African storytellers{" "}
-              <span className="text-white/45">starts here.</span>
-            </h2>
+                {isActive && (
+                  <div
+                    key={`text-${index}`}
+                    className="absolute inset-x-0 bottom-0 animate-[academyTextUp_0.8s_ease-out] p-6 md:p-10"
+                  >
+                    <span className="text-[10px] tracking-wider text-[var(--orange)]">
+                      {activity.number}
+                    </span>
 
-            <p className="mt-7 max-w-[560px] text-sm leading-7 text-white/60 md:text-base md:leading-8">
-              A creative ecosystem needs more than production spaces. It needs
-              people with the skills, knowledge and imagination to tell
-              meaningful stories. The CFCV Academy represents that commitment
-              to learning, creative development and the future of African media.
-            </p>
-
-            {/* Learning themes */}
-            <div className="mt-10 divide-y divide-white/10 border-y border-white/10">
-              {learningPillars.map((pillar) => (
-                <div
-                  key={pillar.number}
-                  className="flex gap-5 py-5 md:gap-7"
-                >
-                  <span className="pt-1 text-[10px] tracking-wider text-[var(--orange)]">
-                    {pillar.number}
-                  </span>
-
-                  <div>
-                    <h3 className="font-[var(--font-cormorant)] text-2xl text-white md:text-3xl">
-                      {pillar.title}
+                    <h3 className="mt-2 font-[var(--font-cormorant)] text-4xl leading-[0.95] text-white sm:text-5xl md:text-6xl">
+                      {activity.title}
                     </h3>
 
-                    <p className="mt-1 text-xs leading-6 text-white/50 md:text-sm">
-                      {pillar.description}
+                    <p className="mt-3 max-w-[440px] text-sm leading-6 text-white/65 md:text-base">
+                      {activity.description}
                     </p>
                   </div>
-                </div>
-              ))}
-            </div>
+                )}
+              </div>
+            );
+          })}
 
-            <a
-              href="/academy"
-              className="mt-9 inline-flex items-center gap-3 border-b border-white/30 pb-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-white transition-colors duration-300 hover:border-[var(--orange)] hover:text-[var(--orange)]"
-            >
-              Discover the Academy
-              <span aria-hidden="true">→</span>
-            </a>
+          {/* Indicators */}
+          <div className="absolute right-5 top-5 z-30 flex items-center gap-2 md:right-8 md:top-8">
+            {activities.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                aria-label={`Show ${activities[i].title}`}
+                className={`h-1.5 w-6 rounded-full transition-colors duration-300 ${
+                  i === index ? "bg-[var(--orange)]" : "bg-white/30"
+                }`}
+              />
+            ))}
           </div>
         </div>
+
+        {/* Prominent CTA band */}
+        <a
+          href="/academy"
+          className="group mt-8 flex items-center justify-between border border-white/15 px-7 py-6 transition-colors duration-300 hover:border-[var(--orange)] hover:bg-white/[0.03] md:mt-10 md:px-10 md:py-8"
+        >
+          <span className="font-[var(--font-cormorant)] text-2xl text-white md:text-3xl">
+            Discover the Academy
+          </span>
+
+          <span className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--orange)]">
+            Explore Programs
+            <span className="inline-block transition-transform duration-300 group-hover:translate-x-1.5">
+              →
+            </span>
+          </span>
+        </a>
+
       </div>
     </section>
   );
