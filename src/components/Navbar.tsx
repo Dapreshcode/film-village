@@ -5,11 +5,11 @@ import Link from "next/link";
 
 const navigation = [
   { label: "About", href: "/about" },
-  { label: "The Village", href: "#village" },
-  { label: "Facilities", href: "#facilities" },
-  { label: "Academy", href: "#academy" },
-  { label: "Stories", href: "#stories" },
-  { label: "Journal", href: "#journal" },
+  { label: "The Village", href: "/village" },
+  { label: "Facilities", href: "/facilities" },
+  { label: "Academy", href: "/academy" },
+  { label: "Stories", href: "/stories" },
+  { label: "Journal", href: "/journal" },
 ];
 
 export default function Navbar() {
@@ -53,7 +53,7 @@ export default function Navbar() {
           ))}
 
           <Link
-            href="#partner"
+            href="/partner"
             className="ml-3 bg-[var(--orange)] px-5 py-3 text-[11px] font-bold uppercase tracking-[0.1em] text-[#020617] transition-transform duration-300 hover:-translate-y-0.5"
           >
             Partner With Us
@@ -111,7 +111,7 @@ export default function Navbar() {
           </div>
 
           <Link
-            href="#partner"
+            href="/partner"
             onClick={() => setMenuOpen(false)}
             className="mt-12 inline-flex w-fit bg-[var(--orange)] px-6 py-4 text-xs font-bold uppercase tracking-[0.12em] text-[#020617]"
           >
