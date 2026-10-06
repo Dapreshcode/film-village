@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 const navigation = [
-  { label: "About", href: "#about" },
+  { label: "About", href: "/about" },
   { label: "The Village", href: "#village" },
   { label: "Facilities", href: "#facilities" },
   { label: "Academy", href: "#academy" },
@@ -21,7 +22,7 @@ export default function Navbar() {
       <nav className="mx-auto flex h-20 max-w-[1360px] items-center justify-between px-6 md:h-[88px] md:px-8">
       
         {/* Logo */}
-        <a href="/" className="relative z-50">
+        <Link href="/" className="relative z-50">
           <div className="flex items-center gap-2">
             <div className="flex h-10 w-10 items-center justify-center border border-white/20 text-xs font-bold tracking-widest text-white">
               CFCV
@@ -37,27 +38,27 @@ export default function Navbar() {
               </p>
             </div>
           </div>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden items-center gap-7 lg:flex">
           {navigation.map((item) => (
-            <a
+            <Link
               key={item.label}
               href={item.href}
               className="text-[12px] font-medium uppercase tracking-[0.12em] text-white/80 transition-colors duration-300 hover:text-white"
             >
               {item.label}
-            </a>
+            </Link>
           ))}
 
-          <a
+          <Link
             href="#partner"
             className="ml-3 bg-[var(--orange)] px-5 py-3 text-[11px] font-bold uppercase tracking-[0.1em] text-[#020617] transition-transform duration-300 hover:-translate-y-0.5"
           >
             Partner With Us
             <span className="ml-2">→</span>
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -93,7 +94,7 @@ export default function Navbar() {
         <div className="flex min-h-screen flex-col justify-center px-6">
           <div className="space-y-6">
             {navigation.map((item, index) => (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
@@ -105,18 +106,18 @@ export default function Navbar() {
                 }}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
 
-          <a
+          <Link
             href="#partner"
             onClick={() => setMenuOpen(false)}
             className="mt-12 inline-flex w-fit bg-[var(--orange)] px-6 py-4 text-xs font-bold uppercase tracking-[0.12em] text-[#020617]"
           >
             Partner With Us
             <span className="ml-3">→</span>
-          </a>
+          </Link>
         </div>
       </div>
     </header>

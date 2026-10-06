@@ -6,13 +6,13 @@ const updates = [
     category: "Project Update",
     date: "Latest Update",
     title: "The journey of building the Village continues",
-    image: "/homepage/journal-1.jpeg",
+    image: "/homepage/journal-1.jpg",
   },
   {
     category: "Community",
     date: "From the Village",
     title: "Creating new possibilities for African creatives",
-    image: "/homepage/journal-2.jpeg",
+    image: "/homepage/journal-2.jpg",
   },
 ];
 
@@ -62,7 +62,7 @@ export default function Journal() {
           >
             <div className="relative aspect-[16/10] overflow-hidden bg-[var(--cinematic-navy)]">
               <Image
-                src="/homepage/journal-featured.jpeg"
+                src="/homepage/journal-featured.jpg"
                 alt="Featured Capital Film and Creatives Village update"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"

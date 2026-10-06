@@ -9,7 +9,7 @@ const activities = [
     title: "Learn",
     description:
       "Classroom and workshop sessions building the foundations of storytelling, media theory and craft.",
-    image: "/homepage/story-1.jpeg",
+    image: "/homepage/academy1.jpeg",
   },
   {
     number: "02",
@@ -75,7 +75,7 @@ export default function Academy() {
         </h2>
 
         {/* Full-size auto-cycling card stage — fixed viewport-relative height, not aspect ratio */}
-        <div className="relative h-[56vh] min-h-[380px] max-h-[560px] overflow-hidden">
+        <div className="relative h-[56vh] min-h-[380px] max-h-[560px] lg:min-h-[600px] overflow-hidden">
           {activities.map((activity, i) => {
             const isActive = i === index;
             const isExiting = i === prevIndex;

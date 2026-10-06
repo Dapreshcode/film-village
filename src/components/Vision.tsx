@@ -12,7 +12,7 @@ export default function Vision() {
         <div className="mb-16 flex items-center gap-3 md:mb-20">
           <span className="h-2 w-2 bg-[var(--orange)]" />
 
-          <p className="text-[6px] font-medium uppercase tracking-[0.18em] text-white/50 md:text-[8px]">
+          <p className="text-[6px] font-medium uppercase tracking-[0.16em] text-white/50 md:text-[8px]">
             01 / The Vision
           </p>
         </div>
@@ -64,7 +64,7 @@ export default function Vision() {
                 src="/homepage/vision.jpg"
                 alt="Capital Film & Creatives Village"
                 fill
-                className="object-cover transition-transform duration-700 hover:scale-[1.02]"
+                className="object-contain transition-transform duration-700 hover:scale-[1.02]"
                 sizes="(max-width: 1024px) 100vw, 60vw"
               />
 

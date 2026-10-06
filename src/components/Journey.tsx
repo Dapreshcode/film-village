@@ -8,7 +8,7 @@ const milestones = [
     title: "The idea behind the Village",
     description:
       "A vision begins to take shape around a dedicated creative environment for African storytelling, filmmaking and talent development.",
-    image: "/homepage/journey-1.jpeg",
+    image: "/homepage/journey1.jpeg",
     imageAlt: "Placeholder image for the early vision of the Film Village",
   },
   {
@@ -17,7 +17,7 @@ const milestones = [
     title: "Turning an idea into a place",
     description:
       "The journey moves toward establishing a space where creative production, collaboration and learning can come together.",
-    image: "/homepage/journey-2.jpeg",
+    image: "/homepage/journey2.jpeg",
     imageAlt: "Placeholder image representing development of the Film Village",
   },
   {
@@ -26,7 +26,7 @@ const milestones = [
     title: "Creating possibilities for the future",
     description:
       "As the Village develops, its story will continue through documented milestones, creative partnerships and opportunities for the next generation.",
-    image: "/homepage/journey-3.jpeg",
+    image: "/homepage/journey3.jpeg",
     imageAlt: "Placeholder image representing the future of the Film Village",
   },
 ];
