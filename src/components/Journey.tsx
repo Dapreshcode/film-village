@@ -1,37 +1,31 @@
 
 import Image from "next/image";
+import { prisma } from "@/lib/Prisma";
 
-const milestones = [
-  {
-    number: "01",
-    date: "A VISION TAKES SHAPE",
-    title: "The idea behind the Village",
-    description:
-      "A vision begins to take shape around a dedicated creative environment for African storytelling, filmmaking and talent development.",
-    image: "/homepage/journey1.jpeg",
-    imageAlt: "Placeholder image for the early vision of the Film Village",
-  },
-  {
-    number: "02",
-    date: "BUILDING THE FOUNDATION",
-    title: "Turning an idea into a place",
-    description:
-      "The journey moves toward establishing a space where creative production, collaboration and learning can come together.",
-    image: "/homepage/journey2.jpeg",
-    imageAlt: "Placeholder image representing development of the Film Village",
-  },
-  {
-    number: "03",
-    date: "THE JOURNEY CONTINUES",
-    title: "Creating possibilities for the future",
-    description:
-      "As the Village develops, its story will continue through documented milestones, creative partnerships and opportunities for the next generation.",
-    image: "/homepage/journey3.jpeg",
-    imageAlt: "Placeholder image representing the future of the Film Village",
-  },
-];
+export default async function Journey() {
+  const milestones = await prisma.journeyItem.findMany({
+    where: {
+      published: true,
+      featured: true,
+    },
+    orderBy: [
+      { sortOrder: "asc" },
+      { title: "asc" },
+    ],
+    take: 6,
+    select: {
+      id: true,
+      title: true,
+      description: true,
+      summary: true,
+      imageUrl: true,
+      dateLabel: true,
+      sortOrder: true,
+    },
+  });
 
-export default function Journey() {
+  if (milestones.length === 0) return null;
+
   return (
     <section
       id="journey"
@@ -69,70 +63,84 @@ export default function Journey() {
 
         {/* Timeline */}
         <div className="relative">
-          {/* Timeline line */}
           <div
             aria-hidden="true"
             className="absolute bottom-0 left-[7px] top-0 w-px bg-white/15 md:left-1/2 md:-translate-x-1/2"
           />
 
           <div className="space-y-14 md:space-y-20">
-            {milestones.map((milestone, index) => (
-              <article
-                key={milestone.number}
-                className="relative grid grid-cols-[16px_1fr] gap-5 md:grid-cols-2 md:gap-12"
-              >
-                {/* Timeline marker */}
-                <div className="relative z-10 col-start-1 row-start-1 flex justify-center md:col-span-2 md:row-start-1">
-                  <span className="mt-1 h-3.5 w-3.5 rounded-full border-2 border-[var(--orange)] bg-[var(--cinematic-navy)] md:absolute md:left-1/2 md:-translate-x-1/2" />
-                </div>
+            {milestones.map((milestone, index) => {
+              const number = String(index + 1).padStart(2, "0");
+              const description =
+                milestone.description || milestone.summary;
 
-                {/* Milestone content */}
-                <div
-                  className={`col-start-2 row-start-1 pb-2 md:row-start-1 ${
-                    index % 2 === 0
-                      ? "md:col-start-1 md:pr-12 md:text-right"
-                      : "md:col-start-2 md:pl-12"
-                  }`}
+              return (
+                <article
+                  key={milestone.id}
+                  className="relative grid grid-cols-[16px_1fr] gap-5 md:grid-cols-2 md:gap-12"
                 >
-                  <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-[var(--orange)] md:text-[10px]">
-                    {milestone.number} / {milestone.date}
-                  </p>
+                  {/* Timeline marker */}
+                  <div className="relative z-10 col-start-1 row-start-1 flex justify-center md:col-span-2 md:row-start-1">
+                    <span className="mt-1 h-3.5 w-3.5 rounded-full border-2 border-[var(--orange)] bg-[var(--cinematic-navy)] md:absolute md:left-1/2 md:-translate-x-1/2" />
+                  </div>
 
-                  <h3 className="mt-4 font-[var(--font-cormorant)] text-3xl font-medium leading-tight text-white sm:text-4xl md:text-5xl">
-                    {milestone.title}
-                  </h3>
-
-                  <p
-                    className={`mt-4 max-w-[480px] text-sm leading-7 text-white/55 md:text-base ${
-                      index % 2 === 0 ? "md:ml-auto" : ""
+                  {/* Milestone content */}
+                  <div
+                    className={`col-start-2 row-start-1 pb-2 md:row-start-1 ${
+                      index % 2 === 0
+                        ? "md:col-start-1 md:pr-12 md:text-right"
+                        : "md:col-start-2 md:pl-12"
                     }`}
                   >
-                    {milestone.description}
-                  </p>
-                </div>
+                    <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-[var(--orange)] md:text-[10px]">
+                      {number} / {milestone.dateLabel || "JOURNEY MILESTONE"}
+                    </p>
 
-                {/* Milestone image */}
-                <div
-                  className={`col-start-2 row-start-2 md:row-start-1 ${
-                    index % 2 === 0
-                      ? "md:col-start-2 md:pl-12"
-                      : "md:col-start-1 md:row-start-1 md:col-start-1 md:pr-12"
-                  }`}
-                >
-                  <div className="relative aspect-[16/10] overflow-hidden bg-[var(--surface)]">
-                    <Image
-                      src={milestone.image}
-                      alt={milestone.imageAlt}
-                      fill
-                      className="object-cover transition-transform duration-700 hover:scale-[1.03]"
-                      sizes="(max-width: 768px) 100vw, 45vw"
-                    />
+                    <h3 className="mt-4 font-[var(--font-cormorant)] text-3xl font-medium leading-tight text-white sm:text-4xl md:text-5xl">
+                      {milestone.title}
+                    </h3>
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/40 to-transparent" />
+                    {description && (
+                      <p
+                        className={`mt-4 max-w-[480px] text-sm leading-7 text-white/55 md:text-base ${
+                          index % 2 === 0 ? "md:ml-auto" : ""
+                        }`}
+                      >
+                        {description}
+                      </p>
+                    )}
                   </div>
-                </div>
-              </article>
-            ))}
+
+                  {/* Milestone image */}
+                  <div
+                    className={`col-start-2 row-start-2 md:row-start-1 ${
+                      index % 2 === 0
+                        ? "md:col-start-2 md:pl-12"
+                        : "md:col-start-1 md:pr-12"
+                    }`}
+                  >
+                    <div className="relative aspect-[16/10] overflow-hidden bg-[var(--surface)]">
+                      {milestone.imageUrl ? (
+                        <Image
+                          src={milestone.imageUrl}
+                          alt={`Image illustrating ${milestone.title}`}
+                          fill
+                          className="object-cover transition-transform duration-700 hover:scale-[1.03]"
+                          sizes="(max-width: 768px) 100vw, 45vw"
+                        />
+                      ) : (
+                        <div
+                          className="absolute inset-0"
+                          aria-hidden="true"
+                        />
+                      )}
+
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/40 to-transparent" />
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
 

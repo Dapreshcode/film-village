@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Manrope, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 
+import Footer from "@/components/Footer";
+
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
@@ -17,6 +19,7 @@ export const metadata: Metadata = {
   title: "Capital Film & Creatives Village",
   description:
     "A creative ecosystem for African storytelling, filmmaking and talent development.",
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
 };
 
 export default function RootLayout({
@@ -29,7 +32,11 @@ export default function RootLayout({
       lang="en"
       className={`${manrope.variable} ${cormorant.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        
+        {children}
+        <Footer />
+        </body>
     </html>
   );
 }

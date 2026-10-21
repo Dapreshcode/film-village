@@ -1,0 +1,252 @@
+{
+  "facilities": [
+    {
+      "slug": "production-studios",
+      "name": "Production Studios",
+      "summary": "Purpose-built spaces for visual storytelling.",
+      "description": "production studios for cfcv",
+      "category": "Production",
+      "imageUrl": "/homepage/facilities4.jpeg",
+      "features": [
+        "Film production",
+        "Television production",
+        "Movie Production"
+      ],
+      "status": "IN_DEVELOPMENT",
+      "sortOrder": 0,
+      "featured": true,
+      "published": true
+    },
+    {
+      "slug": "preshdev-studio",
+      "name": "preshdev Studio",
+      "summary": "A film studio designed for film production",
+      "description": "State of the act facility, dont look else where",
+      "category": "film production",
+      "imageUrl": "https://hnoqe8igpednazym.public.blob.vercel-storage.com/facilities/backgroundimage-52LSsxUXBtWCqsIisMiLzSW335JO9Q.jpg",
+      "features": [
+        "sound system"
+      ],
+      "status": "COMING_SOON",
+      "sortOrder": 0,
+      "featured": false,
+      "published": true
+    },
+    {
+      "slug": "post-production",
+      "name": "Post-Production Suite",
+      "summary": "Spaces for shaping and finishing creative work.",
+      "description": "A creative environment for editing, sound design and the development of finished stories.",
+      "category": "Post-Production",
+      "imageUrl": "/homepage/facilities1.jpeg",
+      "features": [
+        "Editing",
+        "Sound design",
+        "Finishing"
+      ],
+      "status": "COMING_SOON",
+      "sortOrder": 1,
+      "featured": true,
+      "published": true
+    },
+    {
+      "slug": "screening-cinema",
+      "name": "Screening Cinema",
+      "summary": "A space for experiencing completed creative work.",
+      "description": "A dedicated space for screening and sharing completed creative work.",
+      "category": "Exhibition",
+      "imageUrl": "/homepage/facilities2.jpg",
+      "features": [
+        "Film screenings",
+        "Creative exhibitions"
+      ],
+      "status": "COMING_SOON",
+      "sortOrder": 2,
+      "featured": false,
+      "published": true
+    },
+    {
+      "slug": "training-studios",
+      "name": "Training Studios",
+      "summary": "Spaces for practical learning and talent development.",
+      "description": "Spaces envisioned for practical learning, creative development and emerging talent.",
+      "category": "Learning",
+      "imageUrl": "/homepage/facilities3.jpeg",
+      "features": [
+        "Practical learning",
+        "Creative development"
+      ],
+      "status": "COMING_SOON",
+      "sortOrder": 3,
+      "featured": true,
+      "published": true
+    },
+    {
+      "slug": "guest-accommodation",
+      "name": "Guest Accommodation",
+      "summary": "Accommodation for visiting creatives and collaborators.",
+      "description": "Accommodation intended to support visiting creatives, collaborators and other guests.",
+      "category": "Hospitality",
+      "imageUrl": "/homepage/facilities5.jpeg",
+      "features": [
+        "Guest accommodation"
+      ],
+      "status": "PLANNED",
+      "sortOrder": 5,
+      "featured": false,
+      "published": true
+    }
+  ],
+  "journeyItems": [
+    {
+      "slug": "the-vision",
+      "title": "The Vision",
+      "summary": "An idea takes shape.",
+      "description": "The early vision for a creative home dedicated to African storytelling.",
+      "dateLabel": null,
+      "imageUrl": "/homepage/journey1.jpeg",
+      "status": "COMPLETED",
+      "sortOrder": 0,
+      "featured": true,
+      "published": true
+    },
+    {
+      "slug": "building-the-village",
+      "title": "Building the Village",
+      "summary": "Turning the vision into a place.",
+      "description": "Developing the facilities and environment needed to support film production.",
+      "dateLabel": null,
+      "imageUrl": "/homepage/journey2.jpeg",
+      "status": "IN_PROGRESS",
+      "sortOrder": 1,
+      "featured": false,
+      "published": true
+    },
+    {
+      "slug": "building-the-people",
+      "title": "Building the People",
+      "summary": "The people make the Village.",
+      "description": "A future focus on developing talent and supporting the next generation of creatives.",
+      "dateLabel": null,
+      "imageUrl": "/homepage/journey3.jpeg",
+      "status": "UPCOMING",
+      "sortOrder": 2,
+      "featured": false,
+      "published": true
+    }
+  ],
+  "stories": [
+    {
+      "slug": "building-a-home-for-african-stories",
+      "title": "Building a Home for African Stories",
+      "excerpt": "An evolving look at the vision behind Capital Film & Creatives Village and the environment being created for African storytellers.",
+      "content": "## The Baobab Tree That Remembered\r\nIn the heart of a small African village called Umoya, where the golden sun painted the earth each morning and the wind carried the songs of distant birds, stood an ancient baobab tree. Its trunk was so wide that ten grown men could barely surround it with their arms.\r\nThe elders believed the tree held the memories of everyone who had ever lived in the village. Beneath its branches, generations had gathered to settle disputes, celebrate marriages, and share stories beneath the stars.\r\nAmong the villagers lived a curious sixteen-year-old girl named Amara. Unlike most children, who dreamed of leaving the village for the bright lights of the city, Amara wanted to understand the secrets of her homeland.\r\nOne evening, while gathering firewood, she heard a faint whisper coming from the baobab tree.\r\n“Amara,” the voice called. “The river is dying, and soon your people will forget who they are.”\r\nStartled, she placed her hand against the rough bark. Suddenly, visions filled her mind: rivers flowing freely, farmers cultivating rich soil, children dancing at festivals, and elders teaching the young the wisdom of their ancestors. Then she saw a different future—dry land, abandoned farms, and a village whose people had forgotten their traditions.\r\nThe tree explained that a new road being built nearby would divert the stream that nourished the village. If nobody acted, the community would lose its water supply.\r\nThe following morning, Amara gathered the village children and shared what she had witnessed. At first, the adults laughed, dismissing her words as childish imagination. But Amara refused to give up. She convinced the young people to investigate the construction site, where they discovered that the river's natural course had indeed been blocked.\r\nTogether, the villagers confronted the builders and negotiated a solution that protected the waterway while allowing construction to continue.\r\nMonths later, the river flowed freely again.\r\nAt the next village festival, the elders honored Amara beneath the ancient baobab tree.\r\n### She finally understood its greatest secret: Africa's future would not be saved by remembering the past alone, but by having the courage to protect what mattered in the present.\r\nAnd from that day onward, the people of Umoya taught their children that even the smallest voice could awaken an entire generation.",
+      "category": "The Village",
+      "dateLabel": "October 2026",
+      "imageUrl": "/homepage/featured-story.jpeg",
+      "featured": true,
+      "sortOrder": 0,
+      "published": true
+    },
+    {
+      "slug": "developing-the-next-generation",
+      "title": "Developing the Next Generation",
+      "excerpt": "A look at the importance of creating opportunities for emerging creatives to learn, practise and build.",
+      "content": "tuiowouttiqouutqportpqroipreqptijoerpoqerojotqpoijtpjqtopqerjqoproiejriojroq",
+      "category": "Talent",
+      "dateLabel": "October 2026",
+      "imageUrl": "/homepage/story-1.jpeg",
+      "featured": true,
+      "sortOrder": 1,
+      "published": true
+    },
+    {
+      "slug": "where-technology-meets-storytelling",
+      "title": "Where Technology Meets Storytelling",
+      "excerpt": "Exploring the relationship between technology, creativity and the future of African storytelling.",
+      "content": null,
+      "category": "Innovation",
+      "dateLabel": "Coming Soon",
+      "imageUrl": "/homepage/story-2.jpeg",
+      "featured": false,
+      "sortOrder": 2,
+      "published": false
+    },
+    {
+      "slug": "a-new-creative-landscape",
+      "title": "A New Creative Landscape",
+      "excerpt": "The journey of creating a space where filmmakers, journalists, photographers and digital creators can collaborate.",
+      "content": null,
+      "category": "Community",
+      "dateLabel": "Coming Soon",
+      "imageUrl": "/homepage/story-3.jpeg",
+      "featured": false,
+      "sortOrder": 3,
+      "published": false
+    }
+  ],
+  "journalEntries": [
+    {
+      "slug": "building-the-future-of-african-storytelling",
+      "title": "Building the Future of African Storytelling",
+      "excerpt": "Notes, updates and reflections from the continuing development of Capital Film & Creatives Village.",
+      "content": "**Kito thought carefully**. “I learned that courage means continuing when the road is difficult. I learned that kindness matters even when nobody rewards you. And I learned that helping others sometimes makes the journey more meaningful than reaching the destination.”\r\nSuddenly, the silver leaves began to shine brighter. A gentle breeze lifted Kito's face toward the sky, and for one extraordinary moment, the moon appeared so close that he felt its cool light resting in his palms.\r\nHe understood then that he had never needed to own the moon to experience its wonder.\r\nWhen Kito returned home, he became a teacher, sharing stories of his journey with the village children. He taught them to dream boldly, travel bravely, and treat every living thing with compassion.",
+      "category": "Vision",
+      "dateLabel": "October 2026",
+      "imageUrl": "/homepage/journal-featured.jpg",
+      "featured": true,
+      "sortOrder": 0,
+      "published": true,
+      "publishedAt": "2026-10-15T15:15:31.356Z"
+    },
+    {
+      "slug": "inside-the-village",
+      "title": "Inside the Village",
+      "excerpt": "A closer look at the spaces, ideas and people shaping the Village.",
+      "content": null,
+      "category": "The Village",
+      "dateLabel": "October 2026",
+      "imageUrl": "/homepage/journal-1.jpg",
+      "featured": true,
+      "sortOrder": 1,
+      "published": true,
+      "publishedAt": "2026-10-20T05:50:45.497Z"
+    },
+    {
+      "slug": "creating-opportunities-for-talent",
+      "title": "Creating Opportunities for Talent",
+      "excerpt": "Reflections on developing young creatives and creating pathways into the creative industry.",
+      "content": null,
+      "category": "People",
+      "dateLabel": "Coming Soon",
+      "imageUrl": "/homepage/journal-2.jpg",
+      "featured": false,
+      "sortOrder": 2,
+      "published": false,
+      "publishedAt": "2026-10-20T05:51:55.453Z"
+    }
+  ],
+  "founderQuotes": [
+    {
+      "text": "We are not just building a studio. We are building a home for African stories to finally be told on their own terms.",
+      "imageUrl": "https://hnoqe8igpednazym.public.blob.vercel-storage.com/founders/story-1-yKVyHiV3cxRiWr34jYa21xtg4XKOkv.jpeg",
+      "sortOrder": 0,
+      "featured": false,
+      "published": true
+    },
+    {
+      "text": "Technology has caught up with our stories. Now we need the place, and the people, to tell them at a world-class level.",
+      "imageUrl": "/homepage/story-2.jpeg",
+      "sortOrder": 1,
+      "featured": false,
+      "published": false
+    },
+    {
+      "text": "Every filmmaker, journalist and creator who walks through this Village should leave more capable than they arrived.",
+      "imageUrl": "/homepage/story-3.jpeg",
+      "sortOrder": 2,
+      "featured": false,
+      "published": false
+    }
+  ]
+}

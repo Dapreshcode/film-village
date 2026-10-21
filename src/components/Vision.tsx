@@ -23,7 +23,7 @@ export default function Vision() {
           {/* Text */}
           <div className="lg:col-span-5">
 
-            <h2 className="max-w-[650px] font-[var(--font-cormorant)] text-[48px] font-medium leading-[0.95] tracking-[-0.02em] text-white sm:text-6xl md:text-7xl">
+            <h2 className="max-w-[650px] font-[var(--font-cormorant)] text-[36px] font-medium leading-[0.95] tracking-[-0.02em] text-white sm:text-6xl md:text-7xl p-0.5">
               Africa has the stories.
               <br />
               <span className="text-white/45">
@@ -64,7 +64,7 @@ export default function Vision() {
                 src="/homepage/vision.jpg"
                 alt="Capital Film & Creatives Village"
                 fill
-                className="object-contain transition-transform duration-700 hover:scale-[1.02]"
+                className="object-cover transition-transform duration-700 hover:scale-[1.02]"
                 sizes="(max-width: 1024px) 100vw, 60vw"
               />
 

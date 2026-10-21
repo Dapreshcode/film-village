@@ -7,15 +7,15 @@
         
         <div className="absolute inset-0">
           <div
-    className="hero-image h-full w-full bg-cover bg-center"
-    style={{
-      backgroundImage: "url('/homepage/hero-film-village.jpg')",
+        className="hero-image h-full w-full bg-cover bg-center"
+        style={{
+      backgroundImage: "url('/homepage/hero-film-village1.jpg')",
     }}
   />
         </div>
 
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/80 via-[#020617]/65 to-[#020617]/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/80 via-[#020617]/55 to-[#020617]/20" />
 
         <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/70 via-[#020617]/30 to-[#020617]/45" />
 

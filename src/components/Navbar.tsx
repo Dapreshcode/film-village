@@ -19,7 +19,7 @@ export default function Navbar() {
     
     <header className="absolute top-0 left-0 z-50 w-full bg-[var(--cinematic-navy)]/0 transition-colors duration-300">
       
-      <nav className="mx-auto flex h-20 max-w-[1360px] items-center justify-between px-6 md:h-[88px] md:px-8">
+      <nav className="mx-auto flex h-10 max-w-[1360px] items-center justify-between px-6 md:h-[88px] md:px-8">
       
         {/* Logo */}
         <Link href="/" className="relative z-50">

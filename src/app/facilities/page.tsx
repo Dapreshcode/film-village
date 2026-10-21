@@ -1,80 +1,35 @@
 import Image from "next/image";
 import Link from "next/link";
+import { prisma } from "@/lib/Prisma";
+import { isAllowedImageUrl } from "@/lib/image-url";
 
-type Facility = {
-  id: string;
-  number: string;
-  title: string;
-  category: string;
-  description: string;
-  image: string;
-  status: "Planned" | "In Development" | "Coming Soon";
-};
+const statusLabels = {
+  PLANNED: "Planned",
+  IN_DEVELOPMENT: "In Development",
+  COMING_SOON: "Coming Soon",
+} as const;
 
-const facilities: Facility[] = [
-  {
-    id: "production-studios",
-    number: "01",
-    title: "Production Studios",
-    category: "Production",
-    description:
-      "Dedicated production spaces envisioned to support film, television and other forms of visual storytelling.",
-    image: "/homepage/facilities4.jpeg",
-    status: "In Development",
-  },
-  {
-    id: "post-production",
-    number: "02",
-    title: "Post-Production Suite",
-    category: "Post-Production",
-    description:
-      "A creative environment for the work that continues after production, from editing through the development of finished stories.",
-    image: "/homepage/facilities1.jpeg",
-    status: "Coming Soon",
-  },
-  {
-    id: "screening-cinema",
-    number: "03",
-    title: "Screening Cinema",
-    category: "Exhibition",
-    description:
-      "A dedicated space for experiencing, screening and sharing completed creative work.",
-    image: "/homepage/facilities-2.jpg",
-    status: "Coming Soon",
-  },
-  {
-    id: "training-studios",
-    number: "04",
-    title: "Training Studios",
-    category: "Learning",
-    description:
-      "Spaces envisioned for practical learning, creative development and the growth of emerging talent.",
-    image: "/homepage/facilities3.jpeg",
-    status: "Coming Soon",
-  },
-  {
-    id: "outdoor-backlot",
-    number: "05",
-    title: "Outdoor Backlot",
-    category: "Production",
-    description:
-      "Outdoor production space intended to expand the range of environments available for visual storytelling.",
-    image: "/homepage/facilities4.jpg",
-    status: "Planned",
-  },
-  {
-    id: "guest-accommodation",
-    number: "06",
-    title: "Guest Accommodation",
-    category: "Hospitality",
-    description:
-      "Accommodation intended to support visiting creatives, collaborators and other guests of the Village.",
-    image: "/homepage/facilities5.jpeg",
-    status: "Planned",
-  },
-];
+export default async function FacilitiesPage() {
+  const records = await prisma.facility.findMany({
+    where: { published: true },
+    orderBy: [
+      { sortOrder: "asc" },
+      { name: "asc" },
+    ],
+  });
 
-export default function FacilitiesPage() {
+  const facilities = records.map((facility) => ({
+    id: facility.id,
+    slug: facility.slug,
+    number: String(facility.sortOrder + 1).padStart(2, "0"),
+    title: facility.name,
+    category: facility.category ?? "Facility",
+    description: facility.description ?? facility.summary,
+    image:  facility.imageUrl && isAllowedImageUrl(facility.imageUrl)
+    ? facility.imageUrl : "/homepage/facilities4.jpeg",
+    status: statusLabels[facility.status],
+  }));
+
   return (
     <main className="bg-[var(--cinematic-navy)] text-white">
       {/* HERO */}
@@ -219,7 +174,7 @@ export default function FacilitiesPage() {
                     </p>
 
                     <Link
-                      href={`/facilities/${facility.id}`}
+                      href={`/facilities/${facility.slug}`}
                       className="mt-8 inline-flex items-center border-b border-white/25 pb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-white transition-colors duration-300 hover:border-[var(--orange)] hover:text-[var(--orange)]"
                     >
                       View Facility
@@ -324,3 +279,4 @@ export default function FacilitiesPage() {
     </main>
   );
 }
+

@@ -28,7 +28,7 @@ export default function AboutPage() {
       {/* HERO */}
       <section className="relative flex min-h-[75vh] items-end overflow-hidden">
         <Image
-          src="/images/hero-placeholder.jpg"
+          src="/pages/about-page-hero-image1.jpg"
           alt="Capital Film & Creatives Village"
           fill
           priority
@@ -36,8 +36,8 @@ export default function AboutPage() {
           sizes="100vw"
         />
 
-        <div className="absolute inset-0 bg-[#020617]/65" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/40 to-transparent" />
+        <div className="absolute inset-0 bg-[#020617]/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/30 to-transparent" />
 
         <div className="relative z-10 mx-auto w-full max-w-[1360px] px-6 pb-20 pt-32 md:px-8 md:pb-28 lg:pb-32">
           <div className="mb-7 flex items-center gap-3">
@@ -110,7 +110,7 @@ export default function AboutPage() {
           <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-20">
             <div className="relative aspect-[4/3] overflow-hidden lg:col-span-7">
               <Image
-                src="/images/vision-placeholder.jpg"
+                src="/homepage/vision.jpg"
                 alt="The vision behind Capital Film & Creatives Village"
                 fill
                 className="object-cover transition-transform duration-700 hover:scale-[1.02]"

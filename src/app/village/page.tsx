@@ -43,7 +43,7 @@ export default function VillagePage() {
       {/* HERO */}
       <section className="relative flex min-h-[78vh] items-end overflow-hidden">
         <Image
-          src="/images/hero-placeholder.jpg"
+          src="/pages/the-village.png"
           alt="Capital Film & Creatives Village"
           fill
           priority
@@ -159,7 +159,7 @@ export default function VillagePage() {
       <section className="relative overflow-hidden bg-[var(--cinematic-navy)]">
         <div className="relative h-[65vh] min-h-[500px]">
           <Image
-            src="/images/village-placeholder.jpg"
+            src="/pages/the-village-1.png"
             alt="Capital Film & Creatives Village"
             fill
             className="object-cover"

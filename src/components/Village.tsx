@@ -21,7 +21,7 @@ export default function Village() {
         <div className="relative aspect-[4/5] overflow-hidden md:aspect-[16/9]">
 
           <Image
-            src="/homepage/the-village-1.jpeg"
+            src="/homepage/the-village.png"
             alt="Capital Film & Creatives Village"
             fill
             className="object-cover transition-transform duration-700 hover:scale-[1.02]"
