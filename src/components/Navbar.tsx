@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const navigation = [
   { label: "About", href: "/about" },
@@ -17,15 +18,15 @@ export default function Navbar() {
 
   return (
     
-    <header className="absolute top-0 left-0 z-50 w-full bg-[var(--cinematic-navy)]/0 transition-colors duration-300">
+    <header className="fixed top-0 left-0 z-50 w-full bg-[var(--cinematic-navy)] transition-colors duration-300">
       
-      <nav className="mx-auto flex h-10 max-w-[1360px] items-center justify-between px-6 md:h-[88px] md:px-8">
+      <nav className="mx-auto flex h-15 max-w-[1360px] items-center justify-between px-6 md:h-[88px] md:px-8">
       
         {/* Logo */}
         <Link href="/" className="relative z-50">
           <div className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center border border-white/20 text-xs font-bold tracking-widest text-white">
-              CFCV
+            <div className="flex  items-center justify-center">
+              <Image src="/homepage/cfcv-logo.png" alt="capital film and creative village logo" width={50} height={50} />
             </div>
 
             <div className="hidden leading-none sm:block">

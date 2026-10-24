@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Manrope, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 
-import Footer from "@/components/Footer";
+
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -35,7 +35,7 @@ export default function RootLayout({
       <body>
         
         {children}
-        <Footer />
+        
         </body>
     </html>
   );

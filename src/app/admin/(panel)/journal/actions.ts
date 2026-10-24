@@ -79,6 +79,7 @@ function refreshPublicPages() {
   revalidatePath("/");
   revalidatePath("/journal", "layout");
   revalidatePath("/admin/journal");
+  revalidatePath("/sitemap.xml");
 }
 
 function isUniqueError(e: unknown) {

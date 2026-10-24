@@ -79,6 +79,7 @@ function refreshPublicPages() {
   revalidatePath("/");
   revalidatePath("/stories", "layout");
   revalidatePath("/admin/stories");
+  revalidatePath("/sitemap.xml");
 }
 
 function isUniqueError(e: unknown) {
@@ -99,7 +100,12 @@ export async function createStory(
   if (!parsed.ok) return parsed.state;
 
   try {
-    await prisma.story.create({ data: parsed.data });
+    await prisma.story.create({
+      data: {
+        ...parsed.data,
+        publishedAt: parsed.data.published ? new Date() : null,
+      },
+    });
   } catch (e) {
     if (isUniqueError(e)) return duplicateSlug;
     throw e;
@@ -118,8 +124,23 @@ export async function updateStory(
   const parsed = parse(formData);
   if (!parsed.ok) return parsed.state;
 
+  const existing = await prisma.story.findUnique({
+    where: { id },
+    select: { publishedAt: true },
+  });
+  if (!existing) return { error: "This story no longer exists." };
+
+  // Set once, on first publish; never changed afterwards
+  const publishedAt =
+    parsed.data.published && !existing.publishedAt
+      ? new Date()
+      : existing.publishedAt;
+
   try {
-    await prisma.story.update({ where: { id }, data: parsed.data });
+    await prisma.story.update({
+      where: { id },
+      data: { ...parsed.data, publishedAt },
+    });
   } catch (e) {
     if (isUniqueError(e)) return duplicateSlug;
     throw e;
@@ -134,12 +155,18 @@ export async function togglePublished(formData: FormData) {
   const id = String(formData.get("id") ?? "");
   const current = await prisma.story.findUnique({
     where: { id },
-    select: { published: true },
+    select: { published: true, publishedAt: true },
   });
   if (!current) return;
+
+  const nowPublished = !current.published;
   await prisma.story.update({
     where: { id },
-    data: { published: !current.published },
+    data: {
+      published: nowPublished,
+      publishedAt:
+        nowPublished && !current.publishedAt ? new Date() : current.publishedAt,
+    },
   });
   refreshPublicPages();
 }

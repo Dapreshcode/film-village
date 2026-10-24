@@ -23,6 +23,8 @@ export default async function StoriesPage() {
     image:  story.imageUrl && isAllowedImageUrl(story.imageUrl)
     ? story.imageUrl : "/homepage/featured-story.jpeg",
     featured: story.featured,
+    publishedAt: story.publishedAt,
+    updateAt: story.updatedAt,
   }));
 
 
