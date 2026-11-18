@@ -16,7 +16,10 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Capital Film & Creatives Village",
+ title: {
+  default: "Capital Film & Creatives Village",
+  template: "%s | CFCV",
+},
   description:
     "A creative ecosystem for African storytelling, filmmaking and talent development.",
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),

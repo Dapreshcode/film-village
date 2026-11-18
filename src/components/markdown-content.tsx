@@ -1,6 +1,8 @@
 import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { isAllowedImageUrl } from "@/lib/image-url";
+import remarkBreaks from "remark-breaks";
+
 
 const components: Components = {
   // The page title is the h1, so body headings start at h2
@@ -47,7 +49,7 @@ const components: Components = {
 
 export default function MarkdownContent({ source }: { source: string }) {
   return (
-    <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
+   <ReactMarkdown remarkPlugins={[remarkGfm, remarkBreaks]} components={components}>
       {source}
     </ReactMarkdown>
   );
