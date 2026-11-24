@@ -111,23 +111,15 @@ export default function Navbar() {
       >
         <div className="flex min-h-screen flex-col justify-center px-6">
           <div className="space-y-6">
-            {navigation.map((item, index) => (
+            {navigation.map((item) => (
               <Link
+                key={item.label}
                 href={item.href}
-            key={item.label}
-            aria-current={isActive(item.href) ? "page" : undefined}
-              className={`relative px-4 py-2 text-[12px] font-medium uppercase tracking-[0.12em] transition-colors duration-300
-              after:absolute after:left-4 after:right-4 after:-bottom-0.5 after:h-[2px] after:rounded-full
-              after:origin-left after:bg-[var(--orange)] after:transition-transform after:duration-300
-              ${
-                isActive(item.href)
-                  ? "text-[var(--orange)] after:scale-x-100"
-                  : "text-white/80 hover:text-white after:scale-x-0 hover:after:scale-x-100"
-
+                onClick={() => setMenuOpen(false)}
+                className="block font-[var(--font-cormorant)] text-4xl text-white transition-colors duration-300 hover:text-[var(--orange)]"
+                style={{
                   
-    }` }
-
-    
+                }}
               >
                 {item.label}
               </Link>
