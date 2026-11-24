@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const navigation = [
   { label: "About", href: "/about" },
@@ -15,6 +16,14 @@ const navigation = [
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+
+  // Keeps /services active when you're on /services/web-design
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname === href || pathname.startsWith(href + "/");
+  };
 
   return (
     
@@ -44,13 +53,21 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <div className="hidden items-center gap-7 lg:flex">
           {navigation.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="text-[12px] font-medium uppercase tracking-[0.12em] text-white/80 transition-colors duration-300 hover:text-white"
-            >
-              {item.label}
-            </Link>
+                <Link
+            href={item.href}
+            key={item.label}
+            aria-current={isActive(item.href) ? "page" : undefined}
+              className={`relative px-4 py-2 text-[12px] font-medium uppercase tracking-[0.12em] transition-colors duration-300
+              after:absolute after:left-4 after:right-4 after:-bottom-0.5 after:h-[2px] after:rounded-full
+              after:origin-left after:bg-[var(--orange)] after:transition-transform after:duration-300
+              ${
+                isActive(item.href)
+                  ? "text-[var(--orange)] after:scale-x-100"
+                  : "text-white/80 hover:text-white after:scale-x-0 hover:after:scale-x-100"
+    }`}
+>
+  {item.label}
+</Link>
           ))}
 
           <Link
@@ -96,15 +113,21 @@ export default function Navbar() {
           <div className="space-y-6">
             {navigation.map((item, index) => (
               <Link
-                key={item.label}
                 href={item.href}
-                onClick={() => setMenuOpen(false)}
-                className="block font-[var(--font-cormorant)] text-4xl text-white transition-colors duration-300 hover:text-[var(--orange)]"
-                style={{
-                  transitionDelay: menuOpen
-                    ? `${index * 50}ms`
-                    : "0ms",
-                }}
+            key={item.label}
+            aria-current={isActive(item.href) ? "page" : undefined}
+              className={`relative px-4 py-2 text-[12px] font-medium uppercase tracking-[0.12em] transition-colors duration-300
+              after:absolute after:left-4 after:right-4 after:-bottom-0.5 after:h-[2px] after:rounded-full
+              after:origin-left after:bg-[var(--orange)] after:transition-transform after:duration-300
+              ${
+                isActive(item.href)
+                  ? "text-[var(--orange)] after:scale-x-100"
+                  : "text-white/80 hover:text-white after:scale-x-0 hover:after:scale-x-100"
+
+                  
+    }` }
+
+    
               >
                 {item.label}
               </Link>
